@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 using System.IO;
+using System.IO.Compression;
 
 public class QuickZip
 {
@@ -18,8 +19,8 @@ public class QuickZip
                 System.IO.Compression.ZipFile.ExtractToDirectory(filePath, $"{extractPath}/{fileName}");
                 AssetDatabase.DeleteAsset(filePath);
                 AssetDatabase.Refresh();
-            }   
-            catch{}       
+            }
+            catch { }
         }
     }
 }
