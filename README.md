@@ -1,2 +1,2 @@
 # UQuickZip
-A function library for .zip files in Unity.
+A quickmenu for .zip files in Unity.
