@@ -23,4 +23,23 @@ public class QuickZip
             catch { }
         }
     }
+
+    [MenuItem("Assets/QuickZip/Zip In Place")]
+    private static void ZipInPlace()
+    {
+        Object file = Selection.activeObject;
+        if (file != null)
+        {
+            try
+            {
+                string filePath = AssetDatabase.GetAssetPath(file);
+                string fileName = Path.GetFileNameWithoutExtension(filePath);
+                string zipPath = Path.GetDirectoryName(filePath);
+                System.IO.Compression.ZipFile.CreateFromDirectory(filePath, $"{zipPath}/{fileName}.zip");
+                AssetDatabase.DeleteAsset(filePath);
+                AssetDatabase.Refresh();
+            }
+            catch { }
+        }
+    }
 }
